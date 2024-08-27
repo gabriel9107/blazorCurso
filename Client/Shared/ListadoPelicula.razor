@@ -1,0 +1,41 @@
+﻿ 
+<div>
+    <h3>Peliculas</h3>
+ 
+    @if (Peliculas is null)
+    {
+        <img alt="cargando" src="" />
+    }
+    else if (Peliculas.Count == 0)
+    {
+        <p> No existen peliculas para mostrar</p>
+
+    }
+    else
+    {
+        @foreach (var pelicula in Peliculas)
+        {
+
+            <PeliculaIndividual pelicula="pelicula"/>
+           @*  <div>
+                <p> Titulo : @((MarkupString)pelicula.Titulo)</p> 
+                @if( DateTime.Today.Subtract(pelicula.FechaLanzamiento).Days <= 5)
+                {
+                    <span style="color:red">(!NUEVO!)</span>
+                }
+                <p>Fecha Lanzamiento: <b>@pelicula.FechaLanzamiento.ToString("dd mm yyyy")</b></p>
+
+            </div> *@
+        }
+    }
+
+</div>
+
+
+@code {
+    [Parameter]
+    public List<Pelicula>? Peliculas { get; set; }
+
+
+
+}

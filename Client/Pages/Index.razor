@@ -1,0 +1,34 @@
+﻿
+
+@page "/"
+
+ 
+<div> 
+    <h3> Pelicula </h3>
+
+    <ListadoPelicula Peliculas="ObtenerPeliculas()"/>
+
+
+   @*  <p> Titulo  : @WakandaForever.Titulo</p>
+    <p> Fecha Lanzamiento  : @WakandaForever.FechaLanzamiento.ToShortDateString()</p> *@
+</div>
+
+<div> 
+    <h2>Crear nueva Pelicula</h2>
+
+    <EjemploTextbox placeholder="Nombre Pelicula"/>
+</div>
+
+@code {
+    List<Pelicula> ObtenerPeliculas()
+    {
+        return new List<Pelicula>()
+        {
+            new Pelicula{Titulo = "<b> Wakanda Forever</b>", FechaLanzamiento = new DateTime(2022, 11, 11)},
+            new Pelicula{Titulo = "<b> Moana</b>", FechaLanzamiento = new DateTime(2022, 11, 11)},
+            new Pelicula{Titulo = "<b>  Inception</b>", FechaLanzamiento = new DateTime(2022, 11, 11)},
+
+        };
+    }
+   
+}
